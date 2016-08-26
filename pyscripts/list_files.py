@@ -6,6 +6,7 @@ Created on Thu Aug 25 00:58:13 2016
 """
 
 import glob
+import os
 #import ctypes
 import speech_recognition as sr
 
@@ -25,9 +26,9 @@ for i in range(0,len(filenames)):
     #print(speaker_name)
     
     filename = filenames[i].split('/',6)[6]
-    filename = filename.split('_',2)[0]
+    foldername = filename.split('_',2)[0]
     
-    filename = filename +'.txt'
+    filename = foldername +speaker_name+ '.txt'
     #print(filename)
     
     
@@ -45,8 +46,11 @@ for i in range(0,len(filenames)):
             
             
     #except IOError:
-
-    f = open(filename,"a")
+    if not os.path.exists(foldername):
+        os.makedirs(foldername)        
+            
+            
+    f = open(foldername+"/"+filename,"a")
     f.write(speaker_name+" spoke:")
         #f.write(speaker_name + " said: ")
     try:
@@ -56,8 +60,10 @@ for i in range(0,len(filenames)):
             #print(r.recognize_google(audio))
     except sr.UnknownValueError:
         f.write("Google Speech Recognition could not understand audio")
+        f.write("\n\n")
     except sr.RequestError as e:
         f.write("Could not request results from Google Speech Recognition service; {0}".format(e))
+        f.write("\n\n")
     f.close()
     
 
