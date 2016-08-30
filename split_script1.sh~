@@ -1,0 +1,10 @@
+#!/bin/bash
+filename=${2%.*}
+filename=$(echo $filename | cut -f2 -d "/")
+
+echo $filename
+
+#cat $1 | cut -f 3,4,8 -d " "
+       	
+
+
