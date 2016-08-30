@@ -1,10 +1,6 @@
 #!/bin/bash
-#SEGMENTS ?= show.seg
-#audio/segmented/%: diarization/%/$(SEGMENTS)
-    #    rm -rf $@
-     #   mkdir -p $@
-
 filename=${2%.*}
+filename=$(echo $filename | cut -f2 -d "/")
 echo $filename
 cat $1 | cut -f 3,4,8 -d " " | \
        	while read LINE ; do \
@@ -18,7 +14,7 @@ cat $1 | cut -f 3,4,8 -d " " | \
 		if [ ! "$len" = "0" ]
 		then
 		echo $sp_id $start $len
-		sox $2 wavfiles/${filename}_${start}_${len}_${sp_id}.wav trim $start $len
+		sox $2 segmentedwavfiles/${filename}_${start}_${len}_${sp_id}.wav trim $start $len
 		fi
              
 		
