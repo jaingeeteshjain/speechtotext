@@ -18,6 +18,6 @@ echo "Started Audio Segmentation...../"
 
 
 echo "Started Audio Transcription...../"
-python audio_transcribe.py 
+python sentiment_analysis.py 
 
 echo "Completed Audio Transcription...../"

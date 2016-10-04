@@ -62,8 +62,11 @@ for i in range(0,len(filenames)):
     if not os.path.exists("transcribed_files/"+foldername):
         os.makedirs("transcribed_files/"+foldername)        
         
-    if os.path.isfile("transcribed_files/"+foldername+"/"+filename):
-        os.remove("transcribed_files/"+foldername+"/"+filename)
+        
+    if i == 0:
+	
+        if os.path.isfile("transcribed_files/"+foldername+"/"+filename):
+            os.remove("transcribed_files/"+foldername+"/"+filename)
         
             
     f = open("transcribed_files/"+foldername+"/"+filename,"a")
@@ -314,7 +317,7 @@ for i in range(0,len(filenames)):
     
     
     for sentence in blob.sentences:
-        print(sentence)
+#        print(sentence)
         #print(sentence.sentiment.polarity)
         
         #print(sentence.sentiment)
@@ -323,19 +326,19 @@ for i in range(0,len(filenames)):
     
         if sentence.sentiment.polarity == 0.0:
     
-            print("Neutral")
+#            print("Neutral")
     
             a = "Neutral"
     
         if sentence.sentiment.polarity < 0.0:
     
-            print("Negative")
+#            print("Negative")
     
             a = "Negative"
     
         if sentence.sentiment.polarity > 0.0:
     
-            print("Positive")
+#            print("Positive")
     
             a = "Positive"
     
@@ -351,7 +354,7 @@ for i in range(0,len(filenames)):
     
         
         
-        print ("This sentence is about: %s" % ", ".join(result))
+#        print ("This sentence is about: %s" % ", ".join(result))
         
         if not os.path.exists("sentiment/"+foldername):
             os.makedirs("sentiment/"+foldername) 
