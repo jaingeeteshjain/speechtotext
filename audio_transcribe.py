@@ -6,10 +6,19 @@ Created on Thu Aug 25 00:58:13 2016
 """
 
 import glob
-import os
+
 #import ctypes
 import speech_recognition as sr
-
+import os, os.path, codecs
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn import decomposition
+from sklearn.feature_extraction.stop_words import ENGLISH_STOP_WORDS
+import numpy as np
+from textblob import TextBlob
+from textblob.sentiments import NaiveBayesAnalyzer
+import speech_recognition as sr
+import nltk
+from nltk.corpus import brown
 
 filenames = glob.glob('/home/cloudera/git/speechtotext/segmentedwavfiles/*.wav')
 
@@ -51,7 +60,7 @@ for i in range(0,len(filenames)):
             
             
     f = open("transcribed_files/"+foldername+"/"+filename,"a")
-    f.write(speaker_name+" spoke:")
+    #f.write(speaker_name+" spoke:")
         #f.write(speaker_name + " said: ")
     try:
             

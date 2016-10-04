@@ -1,0 +1,12 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Oct 4 00:58:13 2016
+
+@author: prathmesh.savale
+"""
+
+
+import glob
+import os
+#import ctypes
+import speech_recognition as sr
