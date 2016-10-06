@@ -66,9 +66,12 @@ for i in range(0,len(filenames)):
     if i == 0:
 	
         if os.path.isfile("transcribed_files/"+foldername+"/"+filename):
-            os.remove("transcribed_files/"+foldername+"/"+filename)
+            filelist = glob.glob("transcribed_files/"+foldername+"/"+"*.txt")
+            print("filelist \n"+str(filelist))
+            for files in filelist:
+            	os.remove(files)
         
-            
+           
     f = open("transcribed_files/"+foldername+"/"+filename,"a")
     #f.write(speaker_name+" spoke:")
         #f.write(speaker_name + " said: ")
