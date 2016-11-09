@@ -1,0 +1,4 @@
+install anaconda3
+pip install SpeechRecognition
+sudo apt-get install swig
+go to third_party folder and install from source pocketsphinx
